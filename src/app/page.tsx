@@ -1,87 +1,229 @@
 import Image from "next/image";
 
+const services = [
+  {
+    title: "Product Strategy",
+    description:
+      "Translate ambitious goals into actionable roadmaps with discovery workshops and lean validation sprints.",
+  },
+  {
+    title: "Web & Mobile Apps",
+    description:
+      "Design, build, and ship responsive experiences powered by TypeScript, React, and modern cloud tooling.",
+  },
+  {
+    title: "Cloud Integrations",
+    description:
+      "Automate data flows, integrate third-party APIs, and deploy resilient infrastructure on Cloudflare Workers.",
+  },
+];
+
+const highlights = [
+  {
+    title: "14-day prototypes",
+    description: "Lean experiments that stakeholders can click, test, and iterate on quickly.",
+  },
+  {
+    title: "Dedicated squads",
+    description: "Cross-functional teams embedded alongside your product owners and designers.",
+  },
+  {
+    title: "Global delivery",
+    description: "Remote-first workflows with overlap across APAC, EMEA, and US time zones.",
+  },
+];
+
+const caseStudies = [
+  {
+    name: "Fintech Onboarding Portal",
+    metric: "40% faster sign-up",
+    description: "Reimagined the customer journey with guided flows, credential automation, and analytics dashboards.",
+  },
+  {
+    name: "Retail Loyalty Platform",
+    metric: "2x repeat purchases",
+    description: "Implemented a headless commerce stack with real-time personalization across mobile touchpoints.",
+  },
+];
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="min-h-screen bg-slate-950 text-white font-[family-name:var(--font-geist-sans)]">
+      <header className="border-b border-white/10 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-6 sm:px-10">
+          <div className="flex flex-col text-sm">
+            <span className="text-lg font-semibold tracking-tight">Mada Digital</span>
+            <span className="text-xs text-white/60">PT. Mada Digital Creative</span>
+          </div>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:hello@madadigital.id"
+            className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-medium transition hover:border-white hover:bg-white hover:text-slate-950 sm:inline-flex"
           >
-            Read our docs
+            Book a discovery call
           </a>
         </div>
+      </header>
+
+      <main>
+        <section className="relative isolate overflow-hidden">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+            <div className="space-y-6 text-balance">
+              <span className="inline-flex rounded-full border border-white/20 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/60">
+                Software house & digital product studio
+              </span>
+              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
+                Build memorable products that launch fast and scale with confidence.
+              </h1>
+              <p className="max-w-xl text-base text-white/70 sm:text-lg">
+                Mada Digital helps visionary teams architect, design, and deliver cloud-native software with measurable impact. From idea validation to multi-region deployment, we define the path and build alongside you.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="mailto:hello@madadigital.id"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white/90"
+                >
+                  Schedule a strategy session
+                </a>
+                <a
+                  href="#case-studies"
+                  className="inline-flex items-center justify-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:border-white"
+                >
+                  View recent work
+                </a>
+              </div>
+            </div>
+            <div className="relative h-80 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-slate-950/50 sm:h-96">
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                alt="Developers collaborating in a modern workspace"
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                priority
+                className="object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-slate-950/70 via-slate-950/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-slate-950/70 px-4 py-3 text-sm backdrop-blur">
+                <p className="font-medium">Trusted by founders and product leaders across fintech, retail, and media.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/10 bg-slate-950/60">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10">
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">What we deliver</h2>
+            <p className="mt-3 max-w-2xl text-sm text-white/70 sm:text-base">
+              A multidisciplinary team from PT. Mada Digital Creative plugs into your roadmap, focusing on the outcomes that matter most to your customers.
+            </p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((service) => (
+                <div
+                  key={service.title}
+                  className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 shadow-md shadow-slate-950/40"
+                >
+                  <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+                  <p className="mt-3 text-sm text-white/70">{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/10" id="case-studies">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold text-white sm:text-3xl">Recent engagements</h2>
+                <p className="mt-2 max-w-xl text-sm text-white/70 sm:text-base">
+                  We tailor squads around each partner, pairing discovery, visual design, and full-stack engineering to ship production-ready releases.
+                </p>
+              </div>
+              <a
+                href="mailto:projects@madadigital.id"
+                className="inline-flex items-center justify-center rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:border-white"
+              >
+                Request full case study deck
+              </a>
+            </div>
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              {caseStudies.map((item) => (
+                <article
+                  key={item.name}
+                  className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-white/30 hover:bg-slate-900"
+                >
+                  <header>
+                    <h3 className="text-xl font-semibold text-white">{item.name}</h3>
+                    <p className="mt-2 text-sm uppercase tracking-wide text-emerald-300/80">{item.metric}</p>
+                  </header>
+                  <p className="mt-4 text-sm text-white/70">{item.description}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+                    Mada Digital delivery snapshot
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/10 bg-slate-900/70">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10">
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">Why teams choose Mada Digital</h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              {highlights.map((highlight) => (
+                <div
+                  key={highlight.title}
+                  className="rounded-3xl border border-white/10 bg-slate-950/70 p-6"
+                >
+                  <h3 className="text-lg font-semibold text-white">{highlight.title}</h3>
+                  <p className="mt-3 text-sm text-white/70">{highlight.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-white/10">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center sm:px-10">
+            <span className="text-sm uppercase tracking-[0.3em] text-white/60">Let&apos;s build</span>
+            <h2 className="max-w-3xl text-pretty text-3xl font-semibold sm:text-4xl">
+              Ready to craft the next standout experience? Partner with PT. Mada Digital Creative and ship with momentum.
+            </h2>
+            <p className="max-w-2xl text-sm text-white/70 sm:text-base">
+              Share your product vision, and we&apos;ll respond within one business day with suggested approaches, timelines, and a curated team.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="mailto:hello@madadigital.id"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+              >
+                Start a project inquiry
+              </a>
+              <a
+                href="https://cal.com/placeholder/madadigital"
+                className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+              >
+                Explore collaboration call
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="border-t border-white/10 bg-slate-950/80">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <p>© {new Date().getFullYear()} PT. Mada Digital Creative — Mada Digital.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <a href="mailto:hello@madadigital.id" className="transition hover:text-white">
+              hello@madadigital.id
+            </a>
+            <a href="https://www.linkedin.com" className="transition hover:text-white">
+              LinkedIn
+            </a>
+            <a href="https://www.instagram.com" className="transition hover:text-white">
+              Instagram
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
