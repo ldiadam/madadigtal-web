@@ -40,6 +40,8 @@
     "dev": "next dev",
     "lint": "next lint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "start": "next start"
+    "start": "next start",
+    "db:migrate": "wrangler d1 migrations apply madadigital-web",
+    "db:migrate:local": "wrangler d1 migrations apply madadigital-web --local"
   }
 }

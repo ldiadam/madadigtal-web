@@ -1,52 +1,11 @@
 import Image from "next/image";
 
-const services = [
-  {
-    title: "Product Strategy",
-    description:
-      "Translate ambitious goals into actionable roadmaps with discovery workshops and lean validation sprints.",
-  },
-  {
-    title: "Web & Mobile Apps",
-    description:
-      "Design, build, and ship responsive experiences powered by TypeScript, React, and modern cloud tooling.",
-  },
-  {
-    title: "Cloud Integrations",
-    description:
-      "Automate data flows, integrate third-party APIs, and deploy resilient infrastructure on Cloudflare Workers.",
-  },
-];
+import { ContactForm } from "@/components/contact-form";
+import { getLandingContent } from "@/lib/landing-content";
 
-const highlights = [
-  {
-    title: "14-day prototypes",
-    description: "Lean experiments that stakeholders can click, test, and iterate on quickly.",
-  },
-  {
-    title: "Dedicated squads",
-    description: "Cross-functional teams embedded alongside your product owners and designers.",
-  },
-  {
-    title: "Global delivery",
-    description: "Remote-first workflows with overlap across APAC, EMEA, and US time zones.",
-  },
-];
+export default async function Home() {
+  const content = await getLandingContent();
 
-const caseStudies = [
-  {
-    name: "Fintech Onboarding Portal",
-    metric: "40% faster sign-up",
-    description: "Reimagined the customer journey with guided flows, credential automation, and analytics dashboards.",
-  },
-  {
-    name: "Retail Loyalty Platform",
-    metric: "2x repeat purchases",
-    description: "Implemented a headless commerce stack with real-time personalization across mobile touchpoints.",
-  },
-];
-
-export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-white font-[family-name:var(--font-geist-sans)]">
       <header className="border-b border-white/10 backdrop-blur">
@@ -116,7 +75,7 @@ export default function Home() {
               A multidisciplinary team from PT. Mada Digital Creative plugs into your roadmap, focusing on the outcomes that matter most to your customers.
             </p>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((service) => (
+              {content.services.map((service) => (
                 <div
                   key={service.title}
                   className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 shadow-md shadow-slate-950/40"
@@ -146,7 +105,7 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {caseStudies.map((item) => (
+              {content.caseStudies.map((item) => (
                 <article
                   key={item.name}
                   className="group flex flex-col justify-between rounded-3xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-white/30 hover:bg-slate-900"
@@ -169,7 +128,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10">
             <h2 className="text-2xl font-semibold text-white sm:text-3xl">Why teams choose Mada Digital</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {highlights.map((highlight) => (
+              {content.highlights.map((highlight) => (
                 <div
                   key={highlight.title}
                   className="rounded-3xl border border-white/10 bg-slate-950/70 p-6"
@@ -182,28 +141,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-t border-white/10">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center sm:px-10">
-            <span className="text-sm uppercase tracking-[0.3em] text-white/60">Let&apos;s build</span>
-            <h2 className="max-w-3xl text-pretty text-3xl font-semibold sm:text-4xl">
-              Ready to craft the next standout experience? Partner with PT. Mada Digital Creative and ship with momentum.
-            </h2>
-            <p className="max-w-2xl text-sm text-white/70 sm:text-base">
-              Share your product vision, and we&apos;ll respond within one business day with suggested approaches, timelines, and a curated team.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="mailto:hello@madadigital.id"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
-              >
-                Start a project inquiry
-              </a>
-              <a
-                href="https://cal.com/placeholder/madadigital"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                Explore collaboration call
-              </a>
+        <section className="border-t border-white/10" id="contact">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+              <div className="space-y-6 text-pretty">
+                <span className="text-sm uppercase tracking-[0.3em] text-white/60">Let&apos;s build</span>
+                <h2 className="text-3xl font-semibold sm:text-4xl">
+                  Ready to craft the next standout experience? Partner with PT. Mada Digital Creative and ship with momentum.
+                </h2>
+                <p className="max-w-2xl text-sm text-white/70 sm:text-base">
+                  Share your product vision, and we&apos;ll respond within one business day with suggested approaches, timelines, and a curated team. Prefer live conversations? Pick a slot that suits you and meet the squad.
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="mailto:hello@madadigital.id"
+                    className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+                  >
+                    Start a project inquiry
+                  </a>
+                  <a
+                    href="https://cal.com/placeholder/madadigital"
+                    className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+                  >
+                    Explore collaboration call
+                  </a>
+                </div>
+              </div>
+              <div className="flex justify-center lg:justify-end">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </section>

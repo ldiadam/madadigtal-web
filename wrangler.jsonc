@@ -11,6 +11,13 @@
     "binding": "ASSETS",
     "directory": ".open-next/assets"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "madadigital-web",
+      "database_id": "dfb9160c-98c5-43a5-ac13-ec5a7d12f45d"
+    }
+  ],
   "observability": {
     "enabled": true
   },
